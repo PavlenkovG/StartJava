@@ -58,15 +58,15 @@ public class VariablesTheme {
         System.out.println("Новое значение переменных:  num1 = " + num1 + ", num2 = " + num2 + '\n');
         System.out.println("Перестановка с помощью арифметических операций");
         System.out.println("Исходные значения переменных: num1 = " + num1 + ", num2 = " + num2);
-        num1 = num1 + num2;
-        num2 = num1 - num2;
-        num1 = num1 - num2;
+        num1 += num2;
+        num2 -= num2;
+        num1 -= num2;
         System.out.println("Новое значение переменных:  num1 = " + num1 + ", num2 = " + num2 + '\n');
         System.out.println("Перестановка с помощью побитовой операции");
         System.out.println("Исходные значения переменных: num1 = " + num1 + ", num2 = " + num2);
-        num1 = num1 ^ num2;
-        num2 = num2 ^ num1;
-        num1 = num1 ^ num2;
+        num1 ^= num2;
+        num2 ^= num1;
+        num1 ^= num2;
         System.out.println("Новое значение переменных:  num1 = " + num1 + ", num2 = " + num2);
 
         System.out.println("\n6. Вывод символов и их кодов\n");
@@ -75,11 +75,11 @@ public class VariablesTheme {
         char chr64 = '@';
         char chr94 = '^';
         char chr95 = '_';
-        System.out.println("Коду " + (int)chr35 + " соответствует символ ASCII-таблицы " + chr35);
-        System.out.println("Коду " + (int)chr38 + " соответствует символ ASCII-таблицы " + chr38);
-        System.out.println("Коду " + (int)chr64 + " соответствует символ ASCII-таблицы " + chr64);
-        System.out.println("Коду " + (int)chr94 + " соответствует символ ASCII-таблицы " + chr94);
-        System.out.println("Коду " + (int)chr95 + " соответствует символ ASCII-таблицы " + chr95);
+        System.out.println("Коду " + (int) chr35 + " соответствует символ ASCII-таблицы " + chr35);
+        System.out.println("Коду " + (int) chr38 + " соответствует символ ASCII-таблицы " + chr38);
+        System.out.println("Коду " + (int) chr64 + " соответствует символ ASCII-таблицы " + chr64);
+        System.out.println("Коду " + (int) chr94 + " соответствует символ ASCII-таблицы " + chr94);
+        System.out.println("Коду " + (int) chr95 + " соответствует символ ASCII-таблицы " + chr95);
 
         System.out.println("\n7. Отображение количества сотен, десятков и единиц числа");
         int num = 123;
