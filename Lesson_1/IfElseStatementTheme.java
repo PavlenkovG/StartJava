@@ -22,8 +22,7 @@ public class IfElseStatementTheme {
             System.out.println("Рост более 1.8 м");
         }
 
-        char firstLetterOfName;
-        firstLetterOfName = "Grigoriy".charAt(0);
+        char firstLetterOfName = "Grigoriy".charAt(0);
         if(firstLetterOfName == 'M') {
             System.out.println("Первая буква имени M");
         } else if (firstLetterOfName == 'I') {
@@ -39,7 +38,7 @@ public class IfElseStatementTheme {
             System.out.println("Число " + num1 + " max, а число " + num2 + " min");
         } else if (num1 < num2) {
             System.out.println("Число " + num2 + " max, а число " + num1 + " min");
-        } else if (num1 == num2) {
+        } else {
             System.out.println("Число " + num1 + " и число " + num2 + " равны");
         }
 
@@ -88,7 +87,7 @@ public class IfElseStatementTheme {
             System.out.println(symbol + " - маленькая буква.");
         } else if (symbol >= 'A' && symbol <= 'Z') {
             System.out.println(symbol + " - большая буква.");
-        } else if (symbol >=0 && symbol <=9) {
+        } else if (symbol >= 0 && symbol <=9 ) {
             System.out.println(symbol + " - число.");
         } else {
             System.out.println(symbol + " - не буква и не число.");
@@ -140,8 +139,7 @@ public class IfElseStatementTheme {
         int rentPerMonth = 5000;
         int earnPerMonth = 13000;
         int productionPrice = 9000;
-        int monthProfit = earnPerMonth - (rentPerMonth + productionPrice);
-        int annualProfit = monthProfit * 12;
+        int annualProfit = (earnPerMonth - rentPerMonth - productionPrice) * 12;
         if (annualProfit > 0) {
             System.out.println("+" + annualProfit + " прибыль за год");
         } else {
