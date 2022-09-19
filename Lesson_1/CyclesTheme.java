@@ -3,24 +3,24 @@ public class CyclesTheme {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел.");
         int num = -10;
         int sumEven = 0;
-        int sumUneven = 0;
+        int sumOdd = 0;
         do {
             if (num % 2 == 0) {
                 sumEven += num;
             } else {
-                sumUneven += num;
+                sumOdd += num;
             }
             num++;
         } while (num <= 21);
         System.out.printf("В промежутке [-10, 21] сумма четных чисел = %d, а нечетных = %d%n",
-                sumEven, sumUneven);
+                sumEven, sumOdd);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания.");
         int num1 = 10;
         int num2 = 5;
         int num3 = -1;
-        int max = 0;
-        int min = 0;
+        int max = num1;
+        int min = num2;
         if (num1 > num2) {
             max = num1;
             min = num2;
@@ -32,7 +32,6 @@ public class CyclesTheme {
             min = num3;
         } else if (num3 > max) {
             max = num3;
-        } else {
         }
         for (int i = max - 1; i > min; i--) {
             System.out.print(i + " ");
@@ -62,15 +61,15 @@ public class CyclesTheme {
         for (int i = 0; i < (5 - numInLine % 5); i++) {
             System.out.printf("%4d", 0);
         }
-        
 
         System.out.println("\n\n5. Проверка количества единиц на четность.");
         num = 3141591;
         int numOfDigits = 0;
         System.out.print("Число " + num + " содержит ");
         while (num > 0) {
-            int digit = num % 10;
-            numOfDigits++;
+            if (num % 10 == 1){
+                numOfDigits++;
+            }
             num /= 10;
         }
         if (numOfDigits % 2 == 0) {
