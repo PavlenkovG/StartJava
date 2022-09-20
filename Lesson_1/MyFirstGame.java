@@ -8,12 +8,12 @@ public class MyFirstGame {
             playerNum = (startRange + endRange) / 2;
             if (playerNum < compNum) {
                 startRange = playerNum + 1;
-                System.out.println("Введенное вами число меньше того, что загадал компьютер");
+                System.out.println("Число " + playerNum + " меньше того, что загадал компьютер");
             } else if (playerNum > compNum) {
                 endRange = playerNum - 1;
-                System.out.println("Введенное вами число больше того, что загадал компьютер");
+                System.out.println("Число " + playerNum + " больше того, что загадал компьютер");
             }
         }
-        System.out.println("Вы угадали!");
+        System.out.println(playerNum + " Вы победили!");
     }
 }
