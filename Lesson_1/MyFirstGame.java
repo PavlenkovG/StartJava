@@ -1,7 +1,7 @@
 public class MyFirstGame {
     public static void main(String[] args) {
         int compNum = 49;
-         int playerNum = 0;
+        int playerNum = 0;
         int startRange = 1;
         int endRange = 100;
         while (playerNum != compNum) {
