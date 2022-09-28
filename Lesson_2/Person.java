@@ -1,0 +1,27 @@
+public class Person {
+    
+    String male = "man";
+    String name = "Paul";
+    float height = 1.88f;
+    int weight = 85;
+    int age = 31;
+
+    void move() {
+        System.out.println("moving");
+    }
+
+    void sit() {
+        System.out.println("sitting");
+    }
+
+    void run() {
+        System.out.println("running");
+    }
+    String speak() {
+        return "Hi!";
+    }
+
+    boolean learnJava() {
+        return true;
+    }
+}
