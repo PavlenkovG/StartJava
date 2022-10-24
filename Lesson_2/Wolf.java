@@ -43,7 +43,7 @@ public class Wolf {
     }
 
     public void setAge(int age) {
-        if (age > 8 | age < 0) {
+        if (age < 0 || age > 8) {
             System.out.println("Некорректный возраст\n");
         } else {
             this.age = age;
