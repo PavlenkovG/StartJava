@@ -12,7 +12,7 @@ public class Calculator {
         this.b = b;
     }
 
-    public void setSign(char sign){
+    public void setSign(char sign) {
         this.sign = sign;
     }
 
@@ -33,7 +33,7 @@ public class Calculator {
                 break;
             case '^' :
                 for (int i = 1; i <= b; i++) {
-                    result*= a;
+                    result *= a;
                 }
                 break;
             case '%' :
@@ -42,6 +42,7 @@ public class Calculator {
             default : System.out.println("Введен недопустимый математический оператор.\n" +
                     "Выберете один из допустимых: + - * / ^ %");
         }
+        
         System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }

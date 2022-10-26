@@ -1,7 +1,8 @@
 import java.util.Scanner;
+
 public class CalculatorTest {
     public static void main(String[] args) {
-        Calculator calc1 = new Calculator();
+        Calculator calc = new Calculator();
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
         while (answer.equals("yes")) {
