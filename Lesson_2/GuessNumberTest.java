@@ -13,7 +13,6 @@ public class GuessNumberTest {
         String answer;
 
         do {
-            answer = "";
             game.startGame();
             while (!"yes".equals(answer) && !"no".equals(answer)) {
                 System.out.println("Хотите продолжить игру? [yes/no]:");

@@ -12,27 +12,25 @@ public class GuessNumber {
 
     public void startGame() {
         Random rnd = new Random();
-        int setNum = rnd.nextInt(100) + 1;
+        int compNum = rnd.nextInt(100) + 1;
         Scanner scanner = new Scanner(System.in);
         int num = 0;
         Player currentPlayer = player1;
-
-        while (setNum != num) {
+        
+        while (compNum != num) {
             System.out.println(currentPlayer.getName() + ", введите число от 1 до 100");
             num = scanner.nextInt();
             currentPlayer.setNumber(num);
-            if (currentPlayer.getNumber() > setNum) {
+            if (currentPlayer.getNumber() > compNum) {
                 System.out.println("Число " + currentPlayer.getNumber() + 
                         " больше того, что загадал компьютер");
-            } else if (currentPlayer.getNumber() < setNum) {
+            } else if (currentPlayer.getNumber() < compNum) {
                 System.out.println("Число " + currentPlayer.getNumber() +
                         " меньше того, что загадал компьютер");
             }
-            if (currentPlayer == player1) {
-                currentPlayer = player2;
-            } else {
-                currentPlayer = player1;
-            }
+            Player сhange = (currentPlayer == player1) ? (currentPlayer = player2) : 
+                    (currentPlayer = player1);
+
         }
         System.out.println(currentPlayer.getName() +", Вы угадали!!! Компьютер загадал:  " + num);
     }
