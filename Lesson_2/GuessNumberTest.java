@@ -13,11 +13,11 @@ public class GuessNumberTest {
         String answer = "";
 
         do {
-            game.startGame();
-            while (!"yes".equals(answer) && !"no".equals(answer)) {
+            game.start();
+            do {
                 System.out.println("Хотите продолжить игру? [yes/no]:");
                 answer = scanner.nextLine();
-            }
+            } while (!"yes".equals(answer) && !"no".equals(answer));
         } while (answer.equals("yes"));
     }
 }
