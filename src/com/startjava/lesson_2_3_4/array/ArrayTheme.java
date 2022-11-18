@@ -114,11 +114,11 @@ public class ArrayTheme {
                 length++;
             }
         }
+
         String[] destArray = new String[length];
         int scrPos = 0;
         int destPos = 0;
         length = 0;
-
         for (int i = 0; i < srcArray.length; i++) {
             if (!srcArray[i].isBlank()) {
                 length++;
