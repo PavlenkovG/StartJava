@@ -8,23 +8,15 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
         while (answer.equals("yes")) {
-            System.out.print("Введите первое число: ");
-            int num1 = scanner.nextInt();
-            calc.setA(num1);
-            System.out.print("Введите знак математической операции: ");
-            char sign = scanner.next().charAt(0);
-            calc.setSign(sign);
-            System.out.print("Введите второе число: ");
-            int num2 = scanner.nextInt();
-            calc.setB(num2);
-            calc.calculate();
+            System.out.print("Введите математическое выражение: ");
+            String expression = scanner.nextLine();
+            System.out.println("Результат = " + calc.calculate(expression));
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-            scanner.nextLine();
             answer = scanner.nextLine();
             while (!"yes".equals(answer) && !"no".equals(answer)) {
                 System.out.println("Введите yes или no ");
                 answer = scanner.nextLine();
             }
-        } 
+        }
     }
 }

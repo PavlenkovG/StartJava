@@ -25,7 +25,7 @@ public class ArrayTheme {
         }
 
         for (int i = 1; i < length - 1; i++) {
-            System.out.print(numbers2[i] + (numbers2[i] != length - 2 ? " * " : " = "));
+            System.out.print(numbers2[i] + (i != length - 2 ? " * " : " = "));
             prod *= numbers2[i];
         }
         System.out.println(prod);
