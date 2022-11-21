@@ -8,14 +8,27 @@ public class Calculator {
         int b = Integer.parseInt(splitExpression[2]);
         String sign = splitExpression[1];
         int result = 1;
-        switch (sign) {
-            case "+" -> result = a + b;
-            case "-" -> result = a - b;
-            case "*" -> result = a * b;
-            case "/" -> result = a / b;
-            case "^" -> result = (int) Math.pow(a, b);
-            case "%" -> result = a % b;
-            default -> System.out.println("Вы ввели недопустимое значение\n");
+        switch(sign) {
+            case "+" :
+                result = a + b;
+                break;
+            case "-" :
+                result = a - b;
+                break;
+            case "*" :
+                result = a * b;
+                break;
+            case "/" :
+                result = a / b;
+                break;
+            case "^" :
+                result = (int) Math.pow(a, b);
+                break;
+            case "%" :
+                result = a % b;
+                break;
+            default : System.out.println("Введен недопустимый математический оператор.\n" +
+                    "Выберете один из допустимых: + - * / ^ %");
         }
         return result;
     }
