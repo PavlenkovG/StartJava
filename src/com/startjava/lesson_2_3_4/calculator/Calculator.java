@@ -2,34 +2,39 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public int calculate(String expression) {
+    public static int calculate(String expression) {
         String[] splitExpression = expression.split(" ");
-        int a = Integer.parseInt(splitExpression[0]);
-        int b = Integer.parseInt(splitExpression[2]);
-        String sign = splitExpression[1];
-        int result = 1;
-        switch(sign) {
-            case "+" :
-                result = a + b;
-                break;
-            case "-" :
-                result = a - b;
-                break;
-            case "*" :
-                result = a * b;
-                break;
-            case "/" :
-                result = a / b;
-                break;
-            case "^" :
-                result = (int) Math.pow(a, b);
-                break;
-            case "%" :
-                result = a % b;
-                break;
-            default : System.out.println("Введен недопустимый математический оператор.\n" +
-                    "Выберете один из допустимых: + - * / ^ %");
+        int a = 0;
+        int b = 0;
+        try {
+            a = Integer.parseInt(splitExpression[0]);
+            b = Integer.parseInt(splitExpression[2]);
+        } catch (NumberFormatException ex) {
+            System.out.println("Недопустимон значение. Введите корректное значение");
+            return 0;
         }
+        try {
+            if (a < 0 || b < 0) {
+                throw new RuntimeException();
+            }
+        } catch (RuntimeException e) {
+            System.out.println("Числа не могут быть отрицательными");
+            return 0;
+        }
+
+        String sign = splitExpression[1];
+        int result = switch (sign) {
+            case "+" -> result = a + b;
+            case "-" -> result = a - b;
+            case "*" -> result = a * b;
+            case "/" -> result = a / b;
+            case "^" -> result = (int) Math.pow(a, b);
+            case "%" -> result = a % b;
+            default -> {
+                System.out.println("Не корректный математический оператор\n");
+                yield 0;
+            }
+        };
         return result;
     }
 }
