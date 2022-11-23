@@ -18,7 +18,7 @@ public class Player {
 
     public void addNumber(int number) {
         if (number < 0 || number > 100) {
-            System.out.println("Некорректное число\n");
+            System.out.println("Некорректное число.\n");
         } else {
             enteredNumbers[attempts++] = number;
         }

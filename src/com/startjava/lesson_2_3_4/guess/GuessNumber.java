@@ -31,7 +31,7 @@ public class GuessNumber {
                         " меньше того, что загадал компьютер");
             }
             if(currentPlayer.getAttempts() == 10) {
-                System.out.println("У " + currentPlayer.getName() + " закончились попытки");
+                System.out.println("У " + currentPlayer.getName() + " закончились попытки.");
             }
             currentPlayer = currentPlayer == player1 ? player2 : player1;
 
