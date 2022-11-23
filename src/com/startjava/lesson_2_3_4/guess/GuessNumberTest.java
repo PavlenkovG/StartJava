@@ -24,3 +24,4 @@ public class GuessNumberTest {
         } while (!"no".equals(answer));
     }
 }
+1
