@@ -39,4 +39,3 @@ public class Player {
         attempts = 0;
     }
 }
-1
