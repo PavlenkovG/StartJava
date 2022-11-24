@@ -4,18 +4,18 @@ public class Calculator {
 
     public static int calculate(String expression) {
         String[] splitExpression = expression.split(" ");
-        int a = 0;
-        int b = 0;
+        int a;
+        int b;
         try {
             a = Integer.parseInt(splitExpression[0]);
             b = Integer.parseInt(splitExpression[2]);
-        } catch (NumberFormatException ex) {
-            System.out.println("Недопустимон значение. Введите корректное значение");
+        } catch (NumberFormatException e) {
+            System.out.println("Недопустимое значение. Введите корректное значение");
             return 0;
         }
         try {
             if (a < 0 || b < 0) {
-                throw new RuntimeException();
+                throw new IllegalArgumentException();
             }
         } catch (RuntimeException e) {
             System.out.println("Числа не могут быть отрицательными");
@@ -23,18 +23,17 @@ public class Calculator {
         }
 
         String sign = splitExpression[1];
-        int result = switch (sign) {
-            case "+" -> result = a + b;
-            case "-" -> result = a - b;
-            case "*" -> result = a * b;
-            case "/" -> result = a / b;
-            case "^" -> result = (int) Math.pow(a, b);
-            case "%" -> result = a % b;
+        return switch (sign) {
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            case "/" -> a / b;
+            case "^" -> (int) Math.pow(a, b);
+            case "%" -> a % b;
             default -> {
                 System.out.println("Не корректный математический оператор\n");
                 yield 0;
             }
         };
-        return result;
     }
 }
