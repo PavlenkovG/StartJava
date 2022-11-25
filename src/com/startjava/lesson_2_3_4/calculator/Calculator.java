@@ -17,7 +17,7 @@ public class Calculator {
             if (a < 0 || b < 0) {
                 throw new IllegalArgumentException();
             }
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Числа не могут быть отрицательными");
             return 0;
         }
