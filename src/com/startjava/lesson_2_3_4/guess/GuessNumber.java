@@ -30,14 +30,14 @@ public class GuessNumber {
                 System.out.println("Число " + currentPlayer.getNumber() +
                         " меньше того, что загадал компьютер");
             }
-            if(currentPlayer.getAttempts() == 10) {
+            if(currentPlayer.getAttempt() == 10) {
                 System.out.println("У " + currentPlayer.getName() + " закончились попытки.");
             }
             currentPlayer = currentPlayer == player1 ? player2 : player1;
 
         }
         System.out.println("Игрок " + currentPlayer.getName() + ", угадал число " + num + " c "
-                + currentPlayer.getAttempts() + " попытки.");
+                + currentPlayer.getAttempt() + " попытки.");
         printEnteredNumbers(player1);
         printEnteredNumbers(player2);
         player1.clearAttempts();

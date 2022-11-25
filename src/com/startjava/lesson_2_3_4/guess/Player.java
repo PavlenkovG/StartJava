@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Player {
     private final String name;
     private final int[] enteredNumbers;
-    private int attempts;
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
@@ -20,22 +20,24 @@ public class Player {
         if (number < 0 || number > 100) {
             System.out.println("Некорректное число.\n");
         } else {
-            enteredNumbers[attempts++] = number;
+            enteredNumbers[attempt++] = number;
         }
     }
 
     public int getNumber() {
-        return enteredNumbers[attempts - 1];
+        return enteredNumbers[attempt - 1];
     }
 
-    public int getAttempts() {
-        return attempts;
+    public int getAttempt() {
+        return attempt;
     }
+
     public int[] getEnteredNumbers() {
-        return Arrays.copyOf(enteredNumbers, attempts);
+        return Arrays.copyOf(enteredNumbers, attempt);
     }
+
     public void clearAttempts() {
-        Arrays.fill(enteredNumbers, 0, attempts, 0);
-        attempts = 0;
+        Arrays.fill(enteredNumbers, 0, attempt, 0);
+        attempt = 0;
     }
 }
