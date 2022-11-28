@@ -1,11 +1,13 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public class Player {
     private final String name;
     private final int[] enteredNumbers;
     private int attempt;
+    private int win;
 
     public Player(String name) {
         this.name = name;
@@ -16,28 +18,44 @@ public class Player {
         return name;
     }
 
-    public void addNumber(int number) {
-        if (number < 0 || number > 100) {
-            System.out.println("Некорректное число.\n");
-        } else {
-            enteredNumbers[attempt++] = number;
-        }
-    }
-
     public int getNumber() {
         return enteredNumbers[attempt - 1];
     }
 
-    public int getAttempt() {
-        return attempt;
+    public void addNumber(int number) {
+        if (number > 0 && number < 100) {
+            enteredNumbers[attempt++] = number;
+        } else {
+            throw new InputMismatchException();
+        }
     }
 
     public int[] getEnteredNumbers() {
         return Arrays.copyOf(enteredNumbers, attempt);
     }
 
+    public int getAttempt() {
+        return attempt;
+    }
+
+    public boolean hasAttempts() {
+        return attempt < 10;
+    }
+
     public void clearAttempts() {
         Arrays.fill(enteredNumbers, 0, attempt, 0);
         attempt = 0;
+    }
+
+    public int getWin() {
+        return win;
+    }
+
+    public void incWin() {
+        win++;
+    }
+
+    public void resetWin() {
+        win = 0;
     }
 }
