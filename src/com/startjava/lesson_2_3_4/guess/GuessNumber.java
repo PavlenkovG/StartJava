@@ -1,38 +1,117 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Scanner;
-import java.util.Random;
+import java.util.InputMismatchException;
 
 public class GuessNumber {
-    private Player player1;
-    private Player player2;
+    private final Player[] players;
+    private int secretNumber;
 
-    public GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    public GuessNumber(Player... players) {
+        this.players = players;
     }
 
     public void start() {
-        Random rnd = new Random();
-        int secretNum = rnd.nextInt(100) + 1;
-        Scanner scanner = new Scanner(System.in);
-        int num = 0;
-        Player currentPlayer = player1;
-        
-        while (secretNum != num) {
-            System.out.println(currentPlayer.getName() + ", введите число от 1 до 100");
-            num = scanner.nextInt();
-            currentPlayer.setNumber(num);
-            if (currentPlayer.getNumber() > secretNum) {
-                System.out.println("Число " + currentPlayer.getNumber() + 
-                        " больше того, что загадал компьютер");
-            } else if (currentPlayer.getNumber() < secretNum) {
-                System.out.println("Число " + currentPlayer.getNumber() +
-                        " меньше того, что загадал компьютер");
-            }
-            currentPlayer = currentPlayer == player1 ? player2 : player1;
-
+        drawLots();
+        for (Player player : players) {
+            player.resetWin();
         }
-        System.out.println(currentPlayer.getName() +", Вы угадали!!! Компьютер загадал:  " + num);
+        int limitRound = 3;
+        for (int round = 0; round < limitRound; round++) {
+            startRound();
+            if (round < limitRound - 1) {
+                System.out.println("Следующий раунд ");
+            }
+        }
+        showWinners();
+    }
+
+    private void drawLots() {
+        for (int i = players.length - 1; i >= 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            Player tmp = players[j];
+            players[j] = players[i];
+            players[i] = tmp;
+        }
+    }
+
+    private void startRound() {
+        for (Player player : players) {
+            player.clearAttempts();
+        }
+        secretNumber = (int) (Math.random() * 100 + 1);
+
+        boolean endRound = false;
+        while (!endRound) {
+            for (Player player : players) {
+                if (!endRound && player.hasAttempts()) {
+                    if (isGuessed(player)) {
+                        player.incWin();
+                        endRound = true;
+                    }
+                } else {
+                    endRound = true;
+                }
+            }
+        }
+        for (Player player : players) {
+            printEnteredNumbers(player);
+        }
+    }
+
+    private boolean isGuessed(Player player) {
+        System.out.println("Очередь игрока: " + player.getName());
+        System.out.print("Введите число от 1 до 100 : ");
+        Scanner scanner = new Scanner(System.in);
+        enterNumber(player, scanner);
+
+        int answer = player.getNumber();
+        String comparisonResult = answer > secretNumber ? " больше" : " меньше";
+        if (answer == secretNumber) {
+            System.out.println("Игрок " + player.getName() + ", угадал число " + secretNumber + " c "
+                    + player.getAttempt() + " попытки.");
+            return true;
+        }
+        System.out.printf("Число %d %s того, что загадал компьютер\n", answer, comparisonResult);
+        if (!player.hasAttempts()) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
+        return false;
+    }
+
+    private void enterNumber(Player player, Scanner scanner) {
+        while (true) {
+            try {
+                player.addNumber(scanner.nextInt());
+                break;
+            } catch (InputMismatchException e) {
+                System.err.printf("Игрок %s ввел некорректное значение\n", player.getName());
+                System.err.printf("'%s'\n Введите число  в интервале  от 1 до 100 : ", scanner.next());
+            }
+        }
+    }
+
+    private void printEnteredNumbers(Player player) {
+        System.out.print("Числа игрока " + player.getName() + " : ");
+        for (int num : player.getEnteredNumbers()) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    private void showWinners(){
+        int maxWin = 0;
+        for (Player player : players) {
+            if (player.getWin() > maxWin) {
+                maxWin = player.getWin();
+            }
+        }
+        System.out.println();
+        for (Player player : players) {
+            if (player.getWin() == maxWin) {
+                System.out.println("Игрок " + player.getName() +
+                        " победил в " + maxWin + " раундах в игре");
+            }
+        }
     }
 }
