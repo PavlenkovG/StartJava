@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.array;
 public class ArrayTheme {
 
     public static void main(String[] args) {
-        System.out.println("\n1. Реверс значений массива");
+        System.out.println("\n1. Реверс значений массива.");
         int[] numbers1 = {5, 3, 1, 7, 2, 8, 4};
         int length = numbers1.length;
         printIntArray(numbers1);
