@@ -1,9 +1,9 @@
-/* Удалить базу */
-DROP DATABASE Jaegers;
 /* Создать базу */
 CREATE DATABASE Jaegers;
+
 /* Подключить базу */
 \c jaegers;
+
 /* Создать таблицу */
 CREATE TABLE Jaegers (
     id           SERIAL PRIMARY KEY,
