@@ -16,10 +16,10 @@ public class GuessNumber {
         for (Player player : players) {
             player.resetWin();
         }
-        int limitRound = 3;
-        for (int round = 0; round < limitRound; round++) {
+        int LIMIT_ROUND = 3;
+        for (int round = 0; round < LIMIT_ROUND; round++) {
             startRound();
-            if (round < limitRound - 1) {
+            if (round < LIMIT_ROUND - 1) {
                 System.out.println("Следующий раунд ");
             }
         }
